@@ -82,6 +82,12 @@ app.get('/fortune', (req,res) => {
   }
 })
 
+let numbers = ['0','1','2','3','4','5','6','7','8','9']
+
+app.get('/random-num', (req,res) => {
+    res.send(`<h1>Random Number: ${numbers[randomInt(0, numbers.length)]}</h1>`)
+})
+
 // Use middleware to handle all non-managed routes (e.g. /xyz)
 // https://expressjs.com/en/api.html#req.originalUrl
 app.use((req, res, next) => {
